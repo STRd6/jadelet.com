@@ -1,3 +1,10 @@
-section
-  h1 Jadelet
-  p Truly truly truly outrageous!
+content
+  header
+    h1 Jadelet
+    p Truly outrageous templates!
+  section
+    h2 A match made in heaven
+    p Jadelet is literally a dream come true!
+    p Coming soon...
+  section
+    = @signupForm
