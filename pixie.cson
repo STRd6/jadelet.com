@@ -1,0 +1,6 @@
+title: "Jadelet - Truly Outrageous Templating!"
+description: """
+  Jadelet is simple, powerful, and truly outrageous reactive templating. By
+  making use of native DOM APIs Jadelet provides the cleanest and smallest 
+  runtime at only 2.7k gzipped. Check it out and have it blow your mind.
+"""
