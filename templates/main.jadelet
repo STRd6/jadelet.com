@@ -5,6 +5,9 @@ content
   section
     h2 A match made in heaven
     p Jadelet is literally a dream come true!
-    p Coming soon...
+    p
+      a(href="https://github.com/STRd6/jadelet") View on GitHub
+    p More info coming soon...
+
   section
     = @signupForm
