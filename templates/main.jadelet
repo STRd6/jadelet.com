@@ -2,13 +2,18 @@ content
   header
     h1 Jadelet
   section
-    h2 Truly outrageous clientside templates!
+    h2 Truly outrageous templates!
     p Jadelet is the smallest of all the serious clientside templating libraries. With the runtime weighing in at only 2,772 bytes it is far and away the winner. But don't let it's size fool you, it contains tremendous power.
     p Jadelet also has the simplest and cleanest way to describe your templates. A one-to-one match with DOM structure and no unnecessary clutter makes it a breeze to learn and a joy to work with.
     p
       Jadelet is MIT licensed, open source, and production ready.
     p
       a(href="https://github.com/STRd6/jadelet") View Jadelet on GitHub
+
+  section
+    h2 Example
+    pre= @templateSample
+    pre= @scriptSample
 
   section
     = @signupForm
