@@ -1,8 +1,6 @@
-title: "Jadelet - Truly Outrageous Templates!"
+title: "Jadelet - Lightweight, elegant HTML templates"
 description: """
-  Jadelet delivers simple, powerful, and truly outrageous reactive templating. By
-  making use of native DOM APIs Jadelet provides the cleanest and smallest
-  runtime at less than 2.8k gzipped. Check it out. It might just blow your mind.
+  Jadelet is the cleanest and simplest way to describe your templates. It is a breeze to learn. Jadelet attributes correspond directly with HTML attributes. If you know HTML then you already know Jadelet.
 """
 dependencies:
   analytics: "distri/google-analytics:master"

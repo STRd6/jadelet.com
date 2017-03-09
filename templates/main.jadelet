@@ -3,8 +3,8 @@ content
     h1 Jadelet
   section
     h2 Lightweight, elegant HTML templates
+    p Jadelet is the cleanest and simplest way to describe your templates. It is a breeze to learn. Jadelet attributes correspond directly with HTML attributes. If you know HTML then you already know Jadelet.
     p Jadelet is the smallest of all clientside templating libraries, with a runtime weighing in at only 2,772 bytes. But don't let its size fool you: it contains tremendous power.
-    p Jadelet is the simplest and cleanest way to describe your templates. It is a breeze to learn. Jadelet attributes correspond directly with HTML attributes. If you know HTML then you already know Jadelet.
     p Jadelet is free, MIT licensed, open source, and production ready.
     p
       a(href="https://github.com/STRd6/jadelet") View Jadelet on GitHub
