@@ -1,8 +1,8 @@
-title: "Jadelet - Truly Outrageous Templating!"
+title: "Jadelet - Truly Outrageous Clientside Templates!"
 description: """
-  Jadelet is simple, powerful, and truly outrageous reactive templating. By
-  making use of native DOM APIs Jadelet provides the cleanest and smallest 
-  runtime at only 2.7k gzipped. Check it out and have it blow your mind.
+  Jadelet delivers simple, powerful, and truly outrageous reactive templating. By
+  making use of native DOM APIs Jadelet provides the cleanest and smallest
+  runtime at less than 2.8k gzipped. Check it out. It might just blow your mind.
 """
 dependencies:
   analytics: "distri/google-analytics:master"
