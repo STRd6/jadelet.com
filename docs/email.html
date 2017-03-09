@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>email</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="https://strd6.github.io/cdn/parallel/docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    <ul class="sections">
+      <li id="section-1">
+  <div class="annotation">
+    <div class="pilwrap">
+      <a class="pilcrow" href="#section-1">&#182;</a>
+    </div>
+    <h1 id="hamlet-coffee-is-now-jadelet-com-">Hamlet.coffee is now Jadelet.com!</h1>
+
+  </div>
+  <div class="content"><pre><code>
+</code></pre>
+</div>
+</li>
+<li id="section-2">
+  <div class="annotation">
+    <div class="pilwrap">
+      <a class="pilcrow" href="#section-2">&#182;</a>
+    </div>
+    <p>Greetings friends! It&#39;s been a long time, hasn&#39;t it? I hope 2017 is treating you
+well... if this year teaches us anything it&#39;s that anything is possible :)</p>
+<p>There&#39;s been some changes here too, aside from just the name. Let&#39;s take a gander:</p>
+<p>We&#39;ve dropped the haml style DSL in favor for the cleaner Jade style DSL. There
+was very little interest in the haml style and removing support for it allows us
+to focus on making a better experience with the style people enjoy.</p>
+<p>Administratively, we&#39;ve consolidate the parser, compiler, cli, and runtime repos
+into one place to make it easier to understand the project as a whole. Check it
+out here: <a href="https://github.com/STRd6/jadelet">https://github.com/STRd6/jadelet</a></p>
+<p>Not all the changes have been boring however! We were able to shrink the runtime
+down to an impressive 2.8kb along with enhancements to event handling. That&#39;s
+only 2,772 bytes (minified and gzipped) the smallest of any serious clientside
+templating library.</p>
+<p>Our new site jadelet.com is launching with updated documentation and tuturials:</p>
+<ul>
+<li>5 min Getting Started</li>
+<li>Jadelet Basics</li>
+<li>Example Garden</li>
+</ul>
+<p>Until next time friends... Never stop believing in yourself! Software <em>can</em> be poetry :)</p>
+
+  </div>
+  <div class="content"><pre><code>
+</code></pre>
+</div>
+</li>
+    </ul>
+  </div>
+  <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.6.3/coffee-script.min.js"></script><script>
+  (function() {
+  var ErrorReporter, bindUpdates, createEditor, exec, findInteractiveElements, readShebang, runners;
+
+  createEditor = function(code, shebang, section) {
+    var annotationElement, contentElement, editorElement, exampleSection, runtimeElement;
+    exampleSection = $("<li>", {
+      "class": "example"
+    });
+    annotationElement = $("<div>", {
+      "class": "annotation"
+    });
+    editorElement = $("<textarea>", {
+      "class": "annotation",
+      text: code
+    });
+    contentElement = $("<div>", {
+      "class": "content"
+    });
+    runtimeElement = $("<div>", {
+      "class": "output"
+    });
+    contentElement.append(runtimeElement);
+    annotationElement.append(editorElement);
+    exampleSection.append(annotationElement);
+    exampleSection.append(contentElement);
+    section.after(exampleSection);
+    return bindUpdates(shebang, editorElement, runtimeElement);
+  };
+
+  bindUpdates = function(shebang, editorElement, runtimeElement) {
+    return editorElement.on("keyup", function() {
+      var e, report, source;
+      report = ErrorReporter(editorElement);
+      source = editorElement.val();
+      try {
+        runners[shebang]({
+          editorElement: editorElement,
+          source: source,
+          runtimeElement: runtimeElement
+        });
+        return report.clear();
+      } catch (_error) {
+        e = _error;
+        return report(e);
+      }
+    });
+  };
+
+  readShebang = function(source) {
+    var match;
+    if (match = source.match(/^\#\! (.*)\n/)) {
+      return match[1];
+    }
+  };
+
+  ErrorReporter = function(editor) {
+    var reporter;
+    reporter = function(error) {
+      var errorParagraph;
+      if (editor.next().is("p.error")) {
+        return editor.next().text(error);
+      } else {
+        errorParagraph = $("<p>", {
+          "class": "error",
+          text: error.toString()
+        });
+        return editor.after(errorParagraph);
+      }
+    };
+    reporter.clear = function() {
+      if (editor.next().is("p.error")) {
+        return editor.next().remove();
+      }
+    };
+    return reporter;
+  };
+
+  findInteractiveElements = function() {
+    return $("blockquote > pre > code").each(function() {
+      var blockQuoteElement, code, codeElement, sectionElement, shebang;
+      codeElement = $(this);
+      code = codeElement.text();
+      if (shebang = readShebang(code)) {
+        if (!runners[shebang]) {
+          return;
+        }
+        code = code.split("\n").slice(1).join("\n");
+        blockQuoteElement = codeElement.parent().parent();
+        sectionElement = blockQuoteElement.parent().parent();
+        blockQuoteElement.remove();
+        return createEditor(code, shebang, sectionElement);
+      }
+    });
+  };
+
+  runners = {};
+
+  (typeof window !== "undefined" && window !== null ? window : global).Interactive = {
+    register: function(name, runner) {
+      runners[name] = runner;
+      findInteractiveElements();
+      return $('#container').on('keyup', 'textarea', function() {
+        $(this).height(0);
+        return $(this).height(this.scrollHeight);
+      }).find('textarea').keyup();
+    }
+  };
+
+  exec = function(_arg) {
+    var code, editorElement, runtimeElement, source;
+    source = _arg.source, code = _arg.code, editorElement = _arg.editorElement, runtimeElement = _arg.runtimeElement;
+    runtimeElement.remove();
+    editorElement.replaceWith($("<pre>", {
+      text: source
+    }));
+    return setTimeout(function() {
+      return Function(code)();
+    }, 0);
+  };
+
+  $(function() {
+    Interactive.register("setup", function(params) {
+      params.code = CoffeeScript.compile(params.source);
+      return exec(params);
+    });
+    return Interactive.register("setup-js", function(params) {
+      params.code = params.source;
+      return exec(params);
+    });
+  });
+
+}).call(this);
+
+</script><script src="package.js"></script>
+</body>
+</html>
