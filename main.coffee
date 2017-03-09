@@ -9,24 +9,20 @@ Template = require "./templates/main"
 document.body.appendChild Template
   signupForm: require "./lib/mailchimp"
   templateSample: """
-    # templates/panel.jadelet
-    .panel
-      input(type="text" value=@value)
-      select(value=@value options=[@min..@max])
-      input(type="range" value=@value min=@min max=@max)
-      progress(value=@value max=@max)
+    # templates/section.jadelet
+    section
+      h1= @title
+      p= @text
   """
   scriptSample: """
     # index.js
-    Observable = require("jadelet").Observable;
-    PanelTemplate = require("./templates/panel");
+    PanelTemplate = require("./templates/section");
     
     model = {
-      min: 1,
-      max: 10,
-      value: Observable(5)
+      title: "Hello",
+      text: "Welcome to Jadelet"
     };
-    
+
     element = PanelTemplate(model);
     document.body.appendChild(element);
   """
