@@ -17,7 +17,7 @@ document.body.appendChild Template
   scriptSample: """
     # index.js
     PanelTemplate = require("./templates/section");
-    
+
     model = {
       title: "Hello",
       text: "Welcome to Jadelet"

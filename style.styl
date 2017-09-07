@@ -40,6 +40,9 @@ section
   margin: auto
   max-width: 640px
 
+  > p:last-child
+    margin-bottom: 0
+
 a
   color: accent-color
   text-decoration: none
@@ -50,10 +53,18 @@ h1, h2
 
 form
   max-width: 400px
+  
+  &.button
+    max-width: 200px
+
+moji
+  display: inline
+  font-size: 150%
+  line-height: 75%
 
 label
   display: block
-  
+
   > .asterisk
     color: primary-color
 

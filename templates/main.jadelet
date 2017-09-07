@@ -2,17 +2,25 @@ content
   header
     h1 Jadelet
   section
-    h2 Lightweight, elegant HTML templates
+    h2 Pure and simple clientside templates
     p Jadelet is the cleanest and simplest way to describe your templates. It is a breeze to learn. Jadelet attributes correspond directly with HTML attributes. If you know HTML then you already know Jadelet.
-    p Jadelet is the smallest of all clientside templating libraries, with a runtime weighing in at only 2,772 bytes. But don't let its size fool you: it contains tremendous power.
-    p Jadelet is free, MIT licensed, open source, and production ready.
+    p Other libraries and frameworks put up barriers between you and the DOM. Like a dutiful servant, Jadelet puts the power of the DOM in your hands.
+    p Jadelet is the smallest of all clientside templating libraries (< 2.5kb). But don't let its size fool you: it contains tremendous power.
+    p Jadelet is free, MIT licensed, open source, non-GMO, and production ready.
     p
       a(href="https://github.com/STRd6/jadelet") View Jadelet on GitHub
+    p
+      a(href="https://jadelet.glitch.me") Visit the Example Playground
+    
+    form.button(action="https://github.com/STRd6/jadelet#getting-started")
+      button 
+        span Install Now
 
   section
-    h2 Example
+    h2 Quick Overview
     pre= @templateSample
     pre= @scriptSample
+    p Things to note: templates are clean and concise, they compile to js files that can be required normally, they take a context object and return an HTMLElement. Neat!
 
   section
     = @signupForm
